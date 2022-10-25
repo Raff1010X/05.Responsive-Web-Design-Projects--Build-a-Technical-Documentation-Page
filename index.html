@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="desk">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Technical documentation page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <div id="container">
+
+      <nav id="navbar">
+
+          <header>
+              <h1>
+                  <img
+                      src="./git.png" alt=""/>
+                  <p>&nbsp;--basic -commands</p>
+              </h1>
+              <button class="hamburger hamburger--spin" type="button" title="menu">
+                  <div class="hamburger-inner"></div>
+              </button>
+          </header>
+
+          <div id="div-scroll">
+              <a href="#What's_Git" class="nav-link">What's Git</a>
+              <a href="#Most_common_Git_commands" class="nav-link">Most common Git commands</a>
+              <a href="#git_clone" class="nav-link">git clone</a>
+              <a href="#git_init" class="nav-link">git init</a>
+              <a href="#git_remote_add" class="nav-link">git remote add</a>
+              <a href="#git_add" class="nav-link">git add</a>
+              <a href="#git_commit" class="nav-link">git commit</a>
+              <a href="#git_log" class="nav-link">git log</a>
+              <a href="#git_push" class="nav-link">git push</a>
+              <a href="#git_branch" class="nav-link">git branch</a>
+              <a href="#git_branch_{branch-name}" class="nav-link">git branch {branch-name}</a>
+              <a href="#git_branch_-d_{branch-name}" class="nav-link">git branch -d {branch-name}</a>
+              <a href="#git_branch_-D_{branch-name}" class="nav-link">git branch -D {branch-name}</a>
+              <a href="#git_push_{remote-name}_--delete_{branch-name}" class="nav-link">git push {remote-name}
+                  --delete {branch-name}</a>
+              <a href="#git_merge" class="nav-link">git merge</a>
+              <a href="#git_fetch" class="nav-link">git fetch</a>
+              <a href="#git_pull" class="nav-link">git pull</a>
+              <a href="#git_checkout" class="nav-link">git checkout</a>
+              <a href="#git_checkout_-b_{branch-name}" class="nav-link">git checkout -b {branch-name}</a>
+              <a href="#git_checkout_{commit-hash}" class="nav-link">git checkout {commit-hash}</a>
+              <a href="#git_checkout_{commit-hash}_{file-name}" class="nav-link">git checkout {commit-hash}
+                  {file-name}</a>
+              <a href="#git_reset" class="nav-link">git reset</a>
+              <a href="#git_reset_--hard_{commit-hash}" class="nav-link">git reset --hard {commit-hash}</a>
+              <a href="#git_revert" class="nav-link">git revert</a>
+          </div>
+      </nav>
+
+      <div id="panel-resize">
+          <img id="grip"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAABkCAYAAACl8EEZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFOSURBVEhL7Va7SgNRED1zu0VQjKnciGhWP0AU7P0FRTGghdhZ+cBvUET8AxtFJB9hqQS/QAUhZG1Mgl0ac8cz+whiYRsIe2CZe+Zx75zZZvAv2pXosV2pHnRK0XjmgsusQHGFQM+/ZqKqOfLAg4jEENn/Vrn7nF7cSgMCr4DyE5oVcf42r2Cy0M8LgWfxbjsNKNZUdZbp16r92tTHy/2vChz3tHdajt9fM9fwwA6BThitqqDOY4VC6k5xmbTrBYc0Wm69sWvkScl0TfEAxnOBLZKmHcwm1xnhlDZInrJKsTfMPzSMvPLi1xbKC+WF8kL5iCo3sB2Jw7AUuGCXZD3XgXY4txBIcMat5cJ4UtHlSuOdP+JxiYuLCUw3GTpvaJb5UWuSnY7Ee1cjbZB4UeUg1Q0et/Wp7/VEIXssaQwChu7k/IQfkx3WbGauvwB+ANdTRTR1ajTCAAAAAElFTkSuQmCC"
+              alt="">
+      </div>
+
+      <main id="main-doc">
+          <h1>Basic Git commands explained</h1>
+          <section class="main-section" id="What's_Git">
+              <header>What's Git</header>
+              <p>Git is distributed version-control system for tracking changes in files. It was originally created by
+                  Linus Torvalds in 2005 for development of the linux kernel as an open-source project. Current
+                  maintainer of git is Junio Hamano. Having a distributed architecture, Git is an example of
+                  Distributed Version Control System.
+                  That means that rather than having only one single place for the full version history of the
+                  software as is common in once-popular version control systems like CVS or Subversion (also known as
+                  SVN), in Git, every developer's working copy of the code is also a repository that can contain the
+                  full history of all changes.
+              </p>
+          </section>
+
+          <section class="main-section" id="Most_common_Git_commands">
+              <header>Most common Git commands</header>
+              <p>Here are the most common Git commands and their explanation.</p>
+              <p><strong>NOTE</strong>: As Git hosting I'm going to reffer to GitHub, but it's the same for every
+                  other Git hosting (GitLab, BitBucket, etc.)</p>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_clone">
+              <header>git clone</header>
+              <p>COMMAND:</p>
+              <code>git clone <span>{</span>url-of-the-project<span>}</span>
+              <br>
+              git clone <span>-b</span> <span>{</span>some-specific-branch<span>}</span> <span>{</span>url-of-the-project<span>}</span> <span># clone from specific branch</span>
+              <br>
+              git clone <span>{</span>url-of-the-project<span>}</span> <span>{</span>folder-in-which-to-clone<span>}</span> <span># clone in specific folder</span>
+          </code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It initializes Git, adds new remote and clones some existing project from GitHub to your
+                      computer
+                  </li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>This command is used only once per project</li>
+                  <li>That project can be empty, or it can already have some files in it</li>
+                  <li>When cloning a project, by default it will clone the master branch, if not specified otherwise
+                  </li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>If we want to get some project from GitHub and start working on it</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_init">
+              <header>git init</header>
+              <p>COMMAND:</p>
+              <code>git init </code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It initializes Git in the folder in which we're calling the command</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>This command is used only once per project and this is usualy the first command you'll run in a
+                      new project</li>
+                  <li>When initializing Git in a project, by default it will initialize it on master branch</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>Convert an existing, unversioned project to a Git repository or initialize a new, empty Git
+                      repository
+                  </li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_remote_add">
+              <header>git remote add</header>
+              <p>COMMAND:</p>
+              <code>git remote add <span>{</span>name<span>}</span> <span>{</span>url-of-the-project<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It adds new remote</li>
+                  <li>It takes two arguments:
+                      <ul>
+                          <li>a remote name eg. <em>origin</em>
+                          </li>
+                          <li>a remote url eg. <em>https://github.com/{username}/{repo}.git</em>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>At the begining of the project, we should set new remote</li>
+                  <li>We can add many remotes, as long as they have different names (origin,
+                      upstream, etc.)
+                  </li>
+                  <li>If the remote name already exists, Git will throw an error</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to add new remote, so we can push our local repository to GitHub</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+
+          <section class="main-section" id="git_add">
+              <header>git add</header>
+              <p>COMMAND:</p>
+              <code>git add <span>{</span>files-to-add<span>}</span>
+              <br>
+              git add <span>.</span> <span># add every change</span>
+              </code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It adds a change in our working directory to the staging area</li>
+                  <li>Basically it tells Git that we want to include these changes to some file in the next commit
+                  </li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>It doesn't really affect the repository until we make a commit</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We've made some changes in our working directory (our project), and we want to include these
+                      changes in our next commit</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_commit">
+              <header>git commit</header>
+              <p>COMMAND:</p>
+              <code>git commit <span># it will open some editor so you can write your commit message</span>
+              <br>
+              git commit <span>-m</span> "some message"<span> # commit message is written inline</span>
+              </code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It records every change that we've made in our working directory (that we've added with
+                      <strong>git add</strong>) as an object in our local repository
+                  </li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>It will save the changes in our local repository, not on GitHub</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We've made some progress in our project, and we want to save our project in this exact state
+                  </li>
+                  <li>It's sort of like a backup for a project</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_log">
+              <header>git log</header>
+              <p>COMMAND:</p>
+              <code>git log</code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will show all the commits in the project</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We've want to see all previous commits that occured in the project</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_push">
+              <header>git push</header>
+              <p>COMMAND:</p>
+              <code>git push <span>-u</span> <span>{</span>remote-name<span>}</span> <span>{</span>branch<span>}</span> <span># it pushes to GitHub, and sets the branch as upstream so that next time you won't have to specify the branch on which to push</span>
+              <br>
+                  git push <span>{</span>remote-name<span>}</span> <span># if you have already set an upstream branch</span>
+              </code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will push (copy) all your local repository content to GitHub</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>Once we push to GitHub, we can see all our work on the remote repository (GitHub)</li>
+                  <li>You have to set remote name first with <strong>git remote add {name} {url}</strong>, so that Git
+                      will know what the remote is</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to be sure that the commits we've made, won't be lost</li>
+                  <li>We want to be able to access the project from multiple computers</li>
+                  <li>We want to be able to collaborate with other people on a project</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_branch">
+              <header>git branch</header>
+              <p>COMMAND:</p>
+              <code>git branch</code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will show as all our local branches</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to see what branches do we have locally</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_branch_{branch-name}">
+              <header>git branch {branch-name}</header>
+              <p>COMMAND:</p>
+              <code>git branch <span>{</span>branch-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will create new branch</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>The branch will be created, but you will remain on the same branch (it won't switch you to the
+                      newly created branch)</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to create a new branch</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_branch_-d_{branch-name}">
+              <header>git branch -d {branch-name}</header>
+              <p>COMMAND:</p>
+              <code>git branch <span>-d</span> <span>{</span>branch-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will delete a branch that's already merged</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>This is safest way to delete a branch</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to delete a branch that's been merged and we don't need that branch anymore</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_branch_-D_{branch-name}">
+              <header>git branch -D {branch-name}</header>
+              <p>COMMAND:</p>
+              <code>git branch <span>-D</span> <span>{</span>branch-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will force delete a branch even if it's not already merged</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>Do this if you are 100% sure that you don't need that branch</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to force delete a branch, and we don't care if it's merged or not</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_push_{remote-name}_--delete_{branch-name}">
+              <header>git push {remote-name} --delete {branch-name}</header>
+              <p>COMMAND:</p>
+              <code>git push <span>{</span>remote-name<span>}</span> <span>--delete</span> <span>{</span>branch-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will delete a remote branch (a branch that's on GitHub) </li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>We can delete a remote branch directly from GitHub</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to delete some remote branch</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_merge">
+              <header>git merge</header>
+              <p>COMMAND:</p>
+              <code>git merge <span>{</span>branch-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will merge the specified branch on the current branch</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>If there are conflicts when you merge, you'll have to fix the conflicts first, remove the part
+                      you don't need and leave the part that you need</li>
+                  <li>The current branch will be updated to reflect the merge, but the target branch will be
+                      completely unaffected</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to combine work that's been done on two separate branches</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_fetch">
+              <header>git fetch</header>
+              <p>COMMAND:</p>
+              <code>git fetch <span>{</span>remote-name<span>}</span> <span>{</span>branch-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will copy the contents from a remote repository branch into your local repository</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>Git will automatically make local branch with the same name as the remote branch</li>
+                  <li>It won't affect your current branch or any other branch</li>
+                  <li>If you run <strong>git branch</strong> it won't show you the newly created branch, to see it you
+                      will have to run <strong>git branch -r</strong>, however you can checkout to that branch with
+                      <strong>git checkout {branch-name}</strong>
+                  </li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want see the work that's been done on some remote branch</li>
+                  <li>We want to review the commits before merging them into our local repository</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_pull">
+              <header>git pull</header>
+              <p>COMMAND:</p>
+              <code>git pull <span>{</span>remote-name<span>}</span> <span>{</span>branch-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will copy the contents from a remote repository branch and merge all the changes into the
+                      current branch</li>
+                  <li>Basically it will do <strong>git fetch</strong> and <strong>git merge</strong>
+                  </li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>When you run <strong>git pul</strong>l, it will automatically merge the branch you are pulling
+                      with the branch you are currently on </li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to update our local repository with a version from remote repository</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_checkout">
+              <header>git checkout</header>
+              <p>COMMAND:</p>
+              <code>git checkout <span>{</span>branch-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will switch to some branch</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>Git checkout has many uses</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We've created some branch with git branch {name}, and now we want to switch to that branch </li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_checkout_-b_{branch-name}">
+              <header>git checkout -b {branch-name}</header>
+              <p>COMMAND:</p>
+              <code>git checkout <span>-b</span> <span>{</span>branch-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will create and switch to that branch</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>It basically does <strong>git branch {branch-name}</strong> and <strong>git checkout
+                          {branch-name}</strong>
+                  </li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We've created some branch with <strong>git branch {name}</strong>, and now we want to switch to
+                      that branch
+                  </li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_checkout_{commit-hash}">
+              <header>git checkout {commit-hash}</header>
+              <p>COMMAND:</p>
+              <code>git checkout <span>{</span>commit-hash<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will go back to some commit so we can inspect the files at that point in time (when we
+                      commited)
+                  </li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We've want to see how the project looked like at some point in time (when we commited)</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_checkout_{commit-hash}_{file-name}">
+              <header>git checkout {commit-hash} {file-name}</header>
+              <p>COMMAND:</p>
+              <code>git checkout <span>{</span>commit-hash<span>}</span> <span>{</span>file-name<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will get the version of some file and it will put it in place of our current file</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We want to revert back some file as it was at some point in time (when we commited)</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_reset">
+              <header>git reset</header>
+              <p>COMMAND:</p>
+              <code>git reset <span>{</span>commit-hash<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will go back to some commit, but it will delete all commits that were after the specified
+                      commit
+                  </li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>All commits that were after the specified commit will be deleted</li>
+                  <li>It won't make any changes in the working directory (files will be preserved as they were)</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We started working on something, and then we realized that we are doing something wrong and we
+                      want to fix that</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_reset_--hard_{commit-hash}">
+              <header>git reset --hard {commit-hash}</header>
+              <p>COMMAND:</p>
+              <code>git reset <span>--hard</span> <span>{</span>commit-hash<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will go back to some commit, but it will delete all commits that were after the specified
+                      commit and it will revert all the files as they were at the specified commit</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>All commits that were after the specified commit will be deleted</li>
+                  <li>All the files will be reverted as they were at the commit that we've specified</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>We started working on something, and then we realized that we are doing something wrong and we
+                      want to start all over again</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+
+          <section class="main-section" id="git_revert">
+              <header>git revert</header>
+              <p>COMMAND:</p>
+              <code>git revert <span>{</span>commit-hash<span>}</span></code>
+              <p>DESCRIPTION:</p>
+              <ul>
+                  <li>It will go back to some commit, but it will create new commit while doing this</li>
+              </ul>
+              <p>NOTE:</p>
+              <ul>
+                  <li>All commits will be preserved</li>
+                  <li>It will create new commit</li>
+                  <li>Git revert is the safest command if we want to go back to some commit</li>
+              </ul>
+              <p>USAGE:</p>
+              <ul>
+                  <li>When we want to return to some point in time (to some commit), but we want to be sure that no
+                      commit will be lost</li>
+              </ul>
+          </section>
+          <div class="horizontal-rule"></div>
+          <br>
+          <p><strong>If you think you have found any misleading information or a typo in this post,
+                  <a id="link-to-source" href="https://dev.to/stefant123/basic-git-commands-explained-1cjd"
+                      target="_blank">please comment below</a>.</strong></p>
+          <br>
+      </main>
+
+  </div>
+</body>
+</html>
