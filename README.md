@@ -1,6 +1,6 @@
-# freeCodeCamp Responsive Web Design certification
+# [freeCodeCamp Responsive Web Design certification](https://www.freecodecamp.org/learn/responsive-web-design/)
 
-## Build a Technical Documentation Page project
+## [Build a Technical Documentation Page project](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-technical-documentation-page)
 
 Working example: https://raff1010x.github.io/05.Responsive-Web-Design-Projects--Build-a-Technical-Documentation-Page/
 
